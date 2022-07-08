@@ -17,7 +17,17 @@ import prettytable
 
 con = sqlite3.connect(":memory:")
 cur = con.cursor()
-sqlite_query = ("")  # TODO составьте запрос на создание таблицы
+sqlite_query = ("""
+    CREATE TABLE animals (
+        Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+        AnimalType NVARCHAR(30),
+        Sex NVARCHAR(10),
+        Name NVARCHAR(20),
+        DateOfBirth DATETIME,
+        Age INTEGER,
+        Weight FLOAT
+    ) 
+""")  # TODO составьте запрос на создание таблицы
 
 # Не удаляйте код ниже, он используется
 # для вывода заголовков созданной таблицы

@@ -12,7 +12,11 @@ import prettytable
 
 con = sqlite3.connect("../music.db")
 cur = con.cursor()
-sqlite_query = ("")  # TODO составьте запрос на создание таблицы
+sqlite_query = ("""
+    SELECT artists.name, albums.album_title FROM artists
+    LEFT JOIN albums on artists.ID = albums.artist_id
+    WHERE albums.album_title IS NULL 
+""")  # TODO составьте запрос на создание таблицы
 
 
 # Не удаляйте код ниже, он используется

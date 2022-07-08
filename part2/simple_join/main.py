@@ -1,3 +1,4 @@
+
 # Используя JOIN выведите все песни(title) и название альбомов (album_title) группы
 # Red Hot Chili Peppers, содержащиеся в базе.
 # Вам потребуются таблицы tracks и albums
@@ -8,7 +9,12 @@ import prettytable
 
 con = sqlite3.connect("../music.db")
 cur = con.cursor()
-sqlite_query = ("")  # TODO составьте запрос на создание таблицы
+sqlite_query = ("""
+    SELECT title, album_title 
+    FROM tracks 
+    JOIN albums ON tracks.album_id = albums.id
+    WHERE author = "Red Hot Chili Peppers"
+""")  # TODO составьте запрос на создание таблицы
 
 
 # Не удаляйте код ниже, он используется

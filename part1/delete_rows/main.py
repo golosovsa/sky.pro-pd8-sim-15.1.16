@@ -12,7 +12,11 @@ from tools import create_table
 con = sqlite3.connect(":memory:")
 con = create_table(con)  # сформируем таблицу из предыдущих уроков
 cur = con.cursor()
-sqlite_query = ("")  # TODO напишите здесь первый запрос на изменение строки
+sqlite_query = ("""
+    DELETE FROM animals
+    WHERE AnimalType = "Собака"
+    AND Name = "Алина"
+""")  # TODO напишите здесь первый запрос на изменение строки
 
 # Не удаляйте этот код, он используется
 # для вывода результата
